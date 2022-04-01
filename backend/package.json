@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run copy:env && npm run pm2:start && npm run pm2:logs",
     "stop": "npm run pm2:stop && npm run pm2:delete",
-    "pm2:start": "pm2 start dist/index.js --name gallery --listen-timeout 100000",
+    "pm2:start": "pm2 start dist/index.js -i max --name gallery --listen-timeout 100000",
     "pm2:stop": "pm2 stop gallery",
     "pm2:delete": "pm2 delete gallery",
     "pm2:logs": "pm2 logs --json",
