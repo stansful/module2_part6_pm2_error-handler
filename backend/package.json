@@ -5,11 +5,18 @@
   "author": "stansful <stansful@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npm run copy:env && npm run pm2:start && npm run pm2:logs",
+    "stop": "npm run pm2:stop && npm run pm2:delete",
+    "pm2:start": "pm2 start dist/index.js --name gallery --listen-timeout 100000",
+    "pm2:stop": "pm2 stop gallery",
+    "pm2:delete": "pm2 delete gallery",
+    "pm2:logs": "pm2 logs --json",
+    "pm2:monit": "pm2 monit",
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write src/**/*",
     "lint": "eslint src --ext .ts --fix",
+    "copy:env": "cp .env dist/",
     "copy:static": "cd .. && npm run build:frontend && npm run copy"
   },
   "dependencies": {
@@ -22,6 +29,7 @@
     "passport": "0.5.2",
     "passport-jwt": "4.0.0",
     "passport-local": "1.0.0",
+    "pm2": "^5.2.0",
     "ts-exif-parser": "0.2.2"
   },
   "devDependencies": {
