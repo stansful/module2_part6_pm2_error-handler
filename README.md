@@ -5,8 +5,15 @@
 ## Getting started
 
 ```
+    # to start server with pm2:
 npm run start
-    # or
+    # to stop server
+npm run stop
+```
+
+## Dev mode
+
+```
 npm run dev
 ```
 
