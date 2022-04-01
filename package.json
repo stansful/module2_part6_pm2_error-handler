@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run build && npm run copy && npm run node:start",
+    "stop": "cd backend && npm run stop",
     "dev": "npm run build && npm run copy && npm run node:dev",
     "node:start": "cd backend && npm run start",
     "node:dev": "cd backend && npm run dev",
